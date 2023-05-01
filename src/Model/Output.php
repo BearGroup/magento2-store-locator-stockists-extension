@@ -21,15 +21,15 @@ namespace Limesharp\Stockists\Model;
 class Output
 {
     /**
-     * @var \Zend_Filter_Interface
+     * @var \Laminas\Filter\FilterInterface
      */
     public $templateProcessor;
 
     /**
-     * @param \Zend_Filter_Interface $templateProcessor
+     * @param \Laminas\Filter\FilterInterface $templateProcessor
      */
     public function __construct(
-        \Zend_Filter_Interface $templateProcessor
+        \Laminas\Filter\FilterInterface $templateProcessor
     ) {
         $this->templateProcessor = $templateProcessor;
     }
