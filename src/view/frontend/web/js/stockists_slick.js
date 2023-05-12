@@ -510,7 +510,7 @@ define(["jquery"], // Require jquery
 
 			_.$list = _.$slideTrack.wrap(
 				'<div aria-live="polite" class="slick-list"/>').parent();
-			_.$slideTrack.css('opacity', 0);
+			_.$slideTrack.css('opacity', '0');
 
 			if (_.options.centerMode === true || _.options.swipeToSlide === true) {
 				_.options.slidesToScroll = 1;
@@ -1515,7 +1515,7 @@ define(["jquery"], // Require jquery
 			if (imgCount > 0) {
 				targetImage = $('img[data-lazy]', _.$slider).first();
 				targetImage.attr('src', null);
-				targetImage.attr('src', targetImage.attr('data-lazy')).removeClass('slick-loading').load(function() {
+				targetImage.attr('src', targetImage.attr('data-lazy')).removeClass('slick-loading').on("load", function() {
 					targetImage.removeAttr('data-lazy');
 					_.progressiveLazyLoad();
 
@@ -1523,7 +1523,7 @@ define(["jquery"], // Require jquery
 						_.setPosition();
 					}
 				})
-					.error(function() {
+					.on("error", function() {
 						targetImage.removeAttr('data-lazy');
 						_.progressiveLazyLoad();
 					});
@@ -1574,7 +1574,7 @@ define(["jquery"], // Require jquery
 			var _ = this, breakpoint, currentBreakpoint, l,
 				responsiveSettings = _.options.responsive || null;
 
-			if ( $.type(responsiveSettings) === "array" && responsiveSettings.length ) {
+			if ( Array.isArray(responsiveSettings) && responsiveSettings.length ) {
 
 				_.respondTo = _.options.respondTo || 'window';
 
@@ -1822,9 +1822,9 @@ define(["jquery"], // Require jquery
 
 			var _ = this, l, item;
 
-			if( option === "responsive" && $.type(value) === "array" ) {
+			if( option === "responsive" && Array.isArray(value) ) {
 				for ( item in value ) {
-					if( $.type( _.options.responsive ) !== "array" ) {
+					if( !Array.isArray( _.options.responsive ) ) {
 						_.options.responsive = [ value[item] ];
 					} else {
 						l = _.options.responsive.length-1;
@@ -2669,3 +2669,4 @@ define(["jquery"], // Require jquery
 		};
 
 	})));
+
