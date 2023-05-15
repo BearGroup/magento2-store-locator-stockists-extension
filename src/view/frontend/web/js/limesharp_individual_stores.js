@@ -1,8 +1,7 @@
 define([
 		'jquery',
 		'stockists_individual_stores',
-		'stockists_mapstyles',
-		'stockists_slick'
+		'stockists_mapstyles'
 	],
 	function($,config,mapstyles) {
 
