@@ -39,8 +39,7 @@ use Limesharp\Stockists\Model\Uploader;
 use Limesharp\Stockists\Model\UploaderPool;
 use Limesharp\Stockists\Model\ResourceModel\Stores\CollectionFactory;
 
-
-
+#[\AllowDynamicProperties]
 class Export extends Stores
 {
     /**
